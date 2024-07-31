@@ -10,3 +10,16 @@ services:
       - MYSQL_PASSWORD=
       - MYSQL_DATABASE=
       - MYSQL_ROOT_PASSWORD=
+
+
+
+
+
+
+
+
+
+
+
+
+
