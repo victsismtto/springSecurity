@@ -30,12 +30,12 @@ public class TokenServiceImpl implements TokenService {
             throw new BadCredentialsException("user or password is invalid");
         }
 
-        var now = Instant.now();
-        var expiresIn = 300L;
+        Instant now = Instant.now();
+        long expiresIn = 300L;
 
-        var scopes = user.get().getRoles().stream().map(RoleEntity::getName).collect(Collectors.joining(" "));
+        String scopes = user.get().getRoles().stream().map(RoleEntity::getName).collect(Collectors.joining(" "));
 
-        var claims = JwtClaimsSet.builder()
+        JwtClaimsSet claims = JwtClaimsSet.builder()
                 .issuer("mybackend")
                 .claim("scope", scopes)
                 .issuedAt(now)
